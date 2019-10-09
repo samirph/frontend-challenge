@@ -1,6 +1,6 @@
 <template>
-  <v-row>
-    <v-col cols="12">
+  <v-row class="justify-space-between">
+    <v-col cols="12" md="3">
       <v-autocomplete
         placeholder="Search for a country..."
         v-model="countrySelect"
@@ -8,19 +8,20 @@
         solo
       />
     </v-col>
-    <v-col cols="7">
+    <v-col cols="7" md="2">
       <v-select placeholder="Filter by Region" v-model="regionFilter" :items="regionList" solo />
     </v-col>
     <v-col cols="12">
       <v-row class="justify-center">
         <v-col
           cols="10"
+          md="3"
           v-for="(country, index) in displayedCountries"
           :key="'country-card-'+index+'-' +(regionFilter || '') + (countrySelect || '')"
         >
-          <v-lazy transition="fade-transition">
-            <v-card @click="toCountryDetails(country)">
-              <v-img :src="country.flag">
+          <v-lazy transition="fade-transition" class="fill-height">
+            <v-card @click="toCountryDetails(country)" class="fill-height">
+              <v-img :src="country.flag" height="160">
                 <template v-slot:placeholder>
                   <v-row class="fill-height ma-0" align="center" justify="center">
                     <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
@@ -28,10 +29,10 @@
                 </template>
               </v-img>
               <v-card-title class="subtitle-1 font-weight-bold my-3">{{country.name}}</v-card-title>
-              <v-card-text class="black--text font-weight-thin">
+              <v-card-text :class="$vuetify.theme.dark ? 'white--text' : 'black--text'" class="font-weight-thin">
                 <p>
                   <b>Population:</b>
-                  {{country.population}}
+                  {{country.population.toLocaleString('en')}}
                 </p>
                 <p>
                   <b>Region:</b>
