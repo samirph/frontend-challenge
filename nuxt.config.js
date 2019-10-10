@@ -52,6 +52,19 @@ export default {
    */
   vuetify: {
     customVariables: ["~/assets/variables.scss"],
+    theme: {
+      themes: {
+        dark: {
+          darkBlue: '#2b3945',
+          darkerBlue: '#202c37',
+        },
+        light: {
+          darkBlueText: '#111517',
+          darkGray: '#858585',
+          lightGray: '#fafafa'
+        }
+      }
+    }
   },
   /*
    ** Build configuration

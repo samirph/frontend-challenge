@@ -1,20 +1,21 @@
 <template>
   <v-row class="justify-space-between">
-    <v-col cols="12" md="3">
+    <v-col cols="12" md="4">
       <v-autocomplete
+        color="darkerBlue"
         placeholder="Search for a country..."
         v-model="countrySelect"
         :items="countryNameList"
         solo
       />
     </v-col>
-    <v-col cols="7" md="2">
+    <v-col cols="7" md="3">
       <v-select placeholder="Filter by Region" v-model="regionFilter" :items="regionList" solo />
     </v-col>
     <v-col cols="12">
       <v-row class="justify-center">
         <v-col
-          cols="10"
+          cols="11"
           md="3"
           v-for="(country, index) in displayedCountries"
           :key="'country-card-'+index+'-' +(regionFilter || '') + (countrySelect || '')"
@@ -28,8 +29,14 @@
                   </v-row>
                 </template>
               </v-img>
-              <v-card-title class="subtitle-1 font-weight-bold my-3">{{country.name}}</v-card-title>
-              <v-card-text :class="$vuetify.theme.dark ? 'white--text' : 'black--text'" class="font-weight-thin">
+              <v-card-title
+                :class="$vuetify.theme.dark ? 'white--text' : 'darkBlueText--text'"
+                class="subtitle-1 font-weight-bold my-3"
+              >{{country.name}}</v-card-title>
+              <v-card-text
+                :class="$vuetify.theme.dark ? 'white--text' : 'darkBlueText--text'"
+                class="font-weight-thin"
+              >
                 <p>
                   <b>Population:</b>
                   {{country.population.toLocaleString('en')}}

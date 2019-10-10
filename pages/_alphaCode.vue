@@ -8,7 +8,7 @@
     <v-col v-if="!loading && country.name">
       <v-row class="justify-space-between">
         <v-col cols="12" md="5" class="font-weight-thin">
-          <v-img :src="country.flag" class="mb-12" />
+          <v-img :src="country.flag" class="mb-0" />
         </v-col>
         <v-col cols="12" md="6">
           <v-row>

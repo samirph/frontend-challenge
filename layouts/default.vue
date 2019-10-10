@@ -1,9 +1,9 @@
 <template>
   <v-app :dark="darkTheme">
-    <v-content>
-      <v-row class="py-2 elevation-1" :class="darkTheme ? 'dark--blue' : 'white'">
-        <v-col cols="7">
-          <h3 class="ml-2 subtitle-1 font-weight-bold">Where in the world?</h3>
+    <v-content :class="{darkerBlue: darkTheme}">
+      <v-row  class="py-2 elevation-1 justify-center" :class="darkTheme ? 'darkBlue' : 'white'">
+        <v-col cols="7" md="6" class="d-flex align-center">
+          <h3 class="ml-4 subtitle-1 font-weight-bold">Where in the world?</h3>
         </v-col>
         <v-col cols="5">
           <div class="text-right">
@@ -46,5 +46,9 @@ export default {
 }
 p{
   margin-bottom: 4px !important;
+}
+
+.theme--dark.v-text-field--solo > .v-input__control > .v-input__slot, .theme--dark.v-card, .theme--dark.v-list, .v-application .grey.darken-3{
+  background-color: #2b3945 !important;
 }
 </style>
